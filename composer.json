@@ -1,0 +1,21 @@
+{
+    "name": "gud3/yii2-helpers",
+    "description": "This is the package of classes that I use from project to project.",
+    "type": "yii2-extension",
+    "keywords": ["yii2"," yii2-helper"," yii2-db"," yii2-migrate"," yii2-array"],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Evgenii Kirichenko",
+            "email": "gud3.ini@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "~2.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "gud3\\yii2-helpers\\": ""
+        }
+    }
+}

@@ -24,7 +24,9 @@ to the require section of your `composer.json` file.
 
 
 
-Usage for create template migration file
+**Migration**
+
+Usage for create template migration file, it saves you time, creates an empty template, to create a table.
 ```
 return [
     'components' => [
@@ -39,3 +41,13 @@ return [
     ...
 ];
 ```
+
+If you need create index in table use `class Indexes` need extends of his and set and override the $indexes property.
+Where key in array it is a table name and value it's column example:
+```
+public $indexes = [
+    'user' => ['email', 'status']
+    ...
+];
+```
+And delete function of the up, down. They are in Indexes class.

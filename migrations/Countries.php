@@ -44,6 +44,9 @@ class Countries extends Migration
      */
     public function safeDown()
     {
-        return true;
+        if (empty($this->db->getTableSchema('{{%countries}}'))) {
+            return true;
+        }
+        $this->dropTable('{{%countries}}');
     }
 }

@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "gud3\\yii2-helpers\\": ""
+            "gud3\\helpers\\": ""
         }
     }
 }

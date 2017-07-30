@@ -53,5 +53,4 @@ public $indexes = [
 And delete function of the up, down. They are in Indexes class.
 
 
-To create a table with countries in short codes for them, also inherit in the migration class from the Country class, remove the functions up, bottom.
-`gud3\helpers\migrations\Countries`
+To create a table with countries in short codes for them, also inherit in the migration class from the Country class `gud3\helpers\migrations\Countries`, remove the functions up, down.

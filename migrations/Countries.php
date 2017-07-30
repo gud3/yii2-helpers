@@ -1,5 +1,7 @@
 <?php
 
+namespace gud3\helpers\migrations;
+
 use yii\db\Migration;
 
 /**

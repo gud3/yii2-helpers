@@ -10,13 +10,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist gud3/yii2-helper "*"
+php composer.phar require --prefer-dist gud3/yii2-helpers "*"
 ```
 
 or add
 
 ```
-"gud3/yii2-helper": "*"
+"gud3/yii2-helpers": "*"
 ```
 
 to the require section of your `composer.json` file.
@@ -35,14 +35,14 @@ return [
     'controllerMap' => [
         'migrate' => [
             'class' => 'yii\console\controllers\MigrateController',
-            'templateFile' => '@vendor/gud3/yii2-heplers/migrations/templates/base.php'
+            'templateFile' => '@vendor/gud3/yii2-helpers/migrations/templates/base.php'
         ],
     ],
     ...
 ];
 ```
 
-If you need create index in table use `class Indexes` need extends of his and set and override the $indexes property.
+If you need create index in table use `class gud3\helpers\migrations\Indexes` need extends of his and set and override the $indexes property.
 Where key in array it is a table name and value it's column example:
 ```
 public $indexes = [
@@ -51,3 +51,7 @@ public $indexes = [
 ];
 ```
 And delete function of the up, down. They are in Indexes class.
+
+
+To create a table with countries in short codes for them, also inherit in the migration class from the Country class, remove the functions up, bottom.
+`gud3\helpers\migrations\Countries`

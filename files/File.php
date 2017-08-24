@@ -6,19 +6,33 @@ use Yii;
 use yii\base\Exception;
 use yii\base\Model;
 use yii\web\UploadedFile;
+
+/**
+ * Class File
+ * @package common\models
+ */
 class File extends Model
 {
     public $file;
     public $name;
     public $path;
 
-    private $form_name;
+    private $formName;
 
-    public function __construct($form_name = 'Upload')
+	/**
+	 * File constructor.
+	 *
+	 * @param string $formName Name Form name for upload
+	 * example: User[avatar] form name 'User'
+	 */
+    public function __construct($formName = 'Upload')
     {
-        $this->form_name = $form_name;
+        $this->formName = $formName;
     }
 
+	/**
+	 * @return array
+	 */
     public function rules()
     {
         return [
@@ -26,11 +40,20 @@ class File extends Model
         ];
     }
 
+	/**
+	 * @return string
+	 */
     public function formName()
     {
-        return $this->form_name;
+        return $this->formName;
     }
 
+	/**
+	 * @param string $attributes
+	 * name attributes in form
+	 *
+	 * @return bool
+	 */
     public function upload($attributes = 'file')
     {
         if (!empty($attributes)) {
@@ -42,7 +65,12 @@ class File extends Model
         return false;
     }
 
-    public function saveFile($nameAlias = '')
+	/**
+	 * @param $nameAlias
+	 *
+	 * @return bool
+	 */
+    public function saveFile($nameAlias)
     {
         if (!$this->validate(null, false)) {
             return false;
@@ -65,16 +93,17 @@ class File extends Model
                     throw new Exception('No save file');
                 }
             }
-
-            if(!$this->name)
-                throw new Exception('No');
-
             return true;
         } catch (\Exception $e) {
             return false;
         }
     }
 
+	/**
+	 * @param null $name
+	 *
+	 * @throws \Exception
+	 */
     public function delete($name = null)
     {
 		try {
@@ -89,7 +118,6 @@ class File extends Model
 					unlink($this->path . DIRECTORY_SEPARATOR . $this->name);
 				}
 			}
-
 		} catch (\Exception $e) {
 			throw $e;
 		}
